@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Shop</title>
+</head>
+<body>
+<th:block th:fragment="shopLayout(categories)">
+  <div class="shop">
+    <div class="categories">
+      <div th:each="category : ${categories}" class="category">
+        <div class="category_img">
+          <img th:src="@{'/img/categories/' + ${category} + '.jpg'}" th:alt="${category}">
+        </div>
+        <div>
+          <div class="category_caption">[[${category}]]</div>
+        </div>
+      </div>
+    </div>
+    <div class="brands">
+      <div class="brand"></div>
+      <div class="brand"></div>
+      <div class="brand"></div>
+      <div class="brand"></div>
+      <div class="brand"></div>
+    </div>
+    <div class="logo">
+      <img src="/img/logos/main_logo.jpg" alt="">
+    </div>
+  </div>
+</th:block>
+</body>
+</html>
