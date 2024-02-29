@@ -19,14 +19,19 @@ public class ViewController {
 
     @GetMapping("/")
     public String home(Model model) {
-        List<String> categories = categoryService.getAll().stream().map(Category::getName).toList();
+        List<String> categories = categoryService.getAllOrderById().stream().map(Category::getName).toList();
         model.addAttribute("categories", categories);
-        return "pages/home";
+        return "/pages/home";
     }
 
     @GetMapping("/category/{name}")
     public String category(Model model, @PathVariable String name) {
         model.addAttribute("category", name);
-        return "pages/category";
+        return "/pages/category";
     }
- }
+
+    @GetMapping("/admin")
+    public String adminPortal() {
+        return "/pages/admin/admin";
+    }
+}

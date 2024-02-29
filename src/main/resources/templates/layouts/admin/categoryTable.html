@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <th:block th:fragment="categoryTableLayout(categories, category)">
+    <button id="show-add-row">Добавить</button>
+    <table class="table">
+      <thead>
+      <tr>
+        <th>id</th>
+        <th>Название</th>
+        <th colspan="2">Управление</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr id="save-row"  hidden>
+        <form th:object="${category}" method="post" action="/admin/categories/add">
+          <td><input type="text" name="id" disabled></td>
+          <td><input type="text" name="name" th:field="*{name}"></td>
+          <td colspan="2"><input type="submit" value="Сохранить"></td>
+        </form>
+      </tr>
+      <tr th:each="cat : ${categories}">
+        <form method="post" th:action="@{'/admin/categories/edit/' + ${cat.id}}">
+          <td><input type="text" name="id" th:value="${cat.id}" disabled></td>
+          <td><input type="text" name="name" th:value="${cat.name}"></td>
+          <td><input type="submit" value="Редактировать"></td>
+          <td>
+        </form>
+        <form method="post" th:action="@{'/admin/categories/delete/' + ${cat.id}}">
+          <input type="submit" value="Удалить">
+        </form>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </th:block>
+</body>
+</html>

@@ -22,11 +22,10 @@ public class Category {
     private String name;
 
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
-    private Set<Item> items;
+    private Set<Item> items = new HashSet<>();;
 
     public Category(String name) {
         this.name = name;
-        items = new HashSet<>();
     }
 
     @Override
