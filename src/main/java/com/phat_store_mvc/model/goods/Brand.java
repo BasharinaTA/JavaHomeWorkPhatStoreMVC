@@ -1,11 +1,10 @@
-package com.phat_store_mvc.model;
+package com.phat_store_mvc.model.goods;
 
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.HashSet;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 @Entity
 @Getter
@@ -22,12 +21,11 @@ public class Brand {
     private String name;
 
     @OneToMany(mappedBy = "brand", cascade=CascadeType.ALL)
-    private Set<Item> items;
+    private Set<Item> items = new HashSet<>();
 
-//    public Brand(String name) {
-//        this.name = name;
-//        items = new HashSet<>();
-//    }
+    public Brand(String name) {
+        this.name = name;
+    }
 
     @Override
     public String toString() {

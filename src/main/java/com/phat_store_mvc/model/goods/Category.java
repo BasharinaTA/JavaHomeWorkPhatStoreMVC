@@ -1,4 +1,4 @@
-package com.phat_store_mvc.model;
+package com.phat_store_mvc.model.goods;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -22,7 +22,7 @@ public class Category {
     private String name;
 
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
-    private Set<Item> items = new HashSet<>();;
+    private Set<Item> items = new HashSet<>();
 
     public Category(String name) {
         this.name = name;

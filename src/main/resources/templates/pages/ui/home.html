@@ -10,8 +10,10 @@
     <th:block th:insert="~{/layouts/header.html::headerLayout}"></th:block>
     <main>
         <th:block th:insert="~{/layouts/shop.html::shopLayout(${categories})}"></th:block>
+        <th:block th:insert="~{layouts/logo.html::logoLayout}"></th:block>
     </main>
 </wrapper>
+<script src="/scripts/header.js"></script>
 <script src="/scripts/home.js"></script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 package com.phat_store_mvc.controllers.admin;
 
-import com.phat_store_mvc.model.Category;
-import com.phat_store_mvc.services.CategoryService;
+import com.phat_store_mvc.model.goods.Category;
+import com.phat_store_mvc.services.category.CategoryService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @AllArgsConstructor
 @RequestMapping("/admin/categories")
 public class CategoryController {
-    public CategoryService categoryService;
+    private CategoryService categoryService;
 
     @PostMapping("/add")
     public String add(Category category) {
@@ -32,7 +32,7 @@ public class CategoryController {
 
     @PostMapping("/delete/{id}")
     public String delete(@PathVariable Integer id) {
-        categoryService.delete(id);
+        categoryService.deleteById(id);
         return "redirect:/admin/category";
     }
 

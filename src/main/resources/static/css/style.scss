@@ -272,6 +272,8 @@ main {
         .categories {
             @extend .logical_block;
             width: 100%;
+            max-height: 1675px;
+            overflow: auto;
             justify-content: center;
             display: grid;
             grid-template-columns:

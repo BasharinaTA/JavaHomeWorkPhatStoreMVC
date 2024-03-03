@@ -1,7 +1,7 @@
 package com.phat_store_mvc.controllers.admin;
 
-import com.phat_store_mvc.model.Category;
-import com.phat_store_mvc.services.CategoryService;
+import com.phat_store_mvc.model.goods.Category;
+import com.phat_store_mvc.services.category.CategoryService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

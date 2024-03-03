@@ -1,12 +1,17 @@
-package com.phat_store_mvc.model;
+package com.phat_store_mvc.model.goods;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.phat_store_mvc.model.item_attributes.Color;
+import com.phat_store_mvc.model.item_attributes.Sex;
+import com.phat_store_mvc.model.item_attributes.Size;
 import jakarta.persistence.*;
 import lombok.*;
 
 @Getter
 @Setter
 @NoArgsConstructor
+@Builder
+@AllArgsConstructor
 @Entity
 @Table(name = "items")
 public class Item {
@@ -18,16 +23,28 @@ public class Item {
     @Column(name = "model")
     private String model;
 
-    @Column(name = "color")
-    private String color;
-
     @Column(name = "amount", nullable = false)
-    private int amount;
+    private Integer amount;
+
+    @Column(name = "color")
+    @Enumerated(EnumType.STRING)
+    private Color color;
+
+    @Column(name="size")
+    private String size;
+
+    @Column(name="sex")
+    @Enumerated(EnumType.STRING)
+    private Sex sex;
+
+    @Column(name="price")
+    private Integer price;
 
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "brand_id", nullable = false)
     private Brand brand;
+    
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "category_id", nullable = false)
@@ -43,11 +60,13 @@ public class Item {
     public String toString() {
         return "Item{" +
                 "id=" + id +
-                ", brand=" + brand.getName() +
                 ", model='" + model + '\'' +
-                ", color='" + color + '\'' +
-                ", category=" + category.getName() +
+                ", color=" + color +
                 ", amount=" + amount +
+                ", size=" + size +
+                ", price=" + price +
+//                ", brand=" + brand +
+//                ", category=" + category +
                 '}';
     }
 }

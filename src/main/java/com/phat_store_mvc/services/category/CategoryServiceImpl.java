@@ -1,6 +1,6 @@
-package com.phat_store_mvc.services;
+package com.phat_store_mvc.services.category;
 
-import com.phat_store_mvc.model.Category;
+import com.phat_store_mvc.model.goods.Category;
 import com.phat_store_mvc.repository.CategoryRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -10,13 +10,23 @@ import java.util.Optional;
 
 @Service
 @AllArgsConstructor
-public class CategoryServiceImpl implements CategoryService {
+public class CategoryServiceImpl implements CategoryService{
     private CategoryRepository categoryRepository;
+
+    @Override
+    public List<Category> getAll() {
+        return categoryRepository.findAll();
+    }
+
+    @Override
+    public Category getById(Integer id) {
+        return categoryRepository.findById(id).orElse(null);
+    }
 
     @Override
     public List<Category> getAllOrderById() {
 //       return categoryRepository.findAll(Sort.by(Sort.Direction.ASC, "id"));
-        return categoryRepository.findByOrderByIdAsc();
+        return categoryRepository.findAllByOrderById();
     }
 
     @Override
@@ -36,7 +46,11 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public void delete(Integer id) {
-        categoryRepository.deleteById(id);
+    public boolean deleteById(Integer id) {
+       if (categoryRepository.findById(id).isPresent()) {
+           categoryRepository.deleteById(id);
+           return true;
+       }
+       return false;
     }
 }
