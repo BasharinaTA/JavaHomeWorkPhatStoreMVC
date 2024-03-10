@@ -6,7 +6,6 @@
 </head>
 <body>
     <th:block th:fragment="itemsLayout(items)">
-        <div class="shop">
             <div class="categories">
                 <div th:each="item : ${items}" class="category">
                     <div class="category_img">
@@ -17,7 +16,6 @@
                     </div>
                 </div>
             </div>
-        </div>
     </th:block>
 </body>
 </html>

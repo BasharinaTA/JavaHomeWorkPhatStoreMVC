@@ -5,8 +5,7 @@
     <title>Shop</title>
 </head>
 <body>
-<th:block th:fragment="shopLayout(categories)">
-  <div class="shop">
+<th:block th:fragment="categoriesLayout(categories)">
     <div class="categories">
       <div th:each="category : ${categories}" class="category">
         <div class="category_img">
@@ -18,14 +17,6 @@
         <p hidden>[[${category.id}]]</p>
       </div>
     </div>
-    <div class="brands">
-      <div class="brand"></div>
-      <div class="brand"></div>
-      <div class="brand"></div>
-      <div class="brand"></div>
-      <div class="brand"></div>
-    </div>
-  </div>
 </th:block>
 </body>
 </html>

@@ -14,8 +14,8 @@
         <div class="h-100">
             <ul>
                 <li><a href="/admin/category">Категории</a></li>
-                <li><a href="#">Бренды</a></li>
-                <li><a href="#">Товары</a></li>
+                <li><a href="/admin/brand">Бренды</a></li>
+                <li><a href="/admin/item">Товары</a></li>
             </ul>
         </div>
     </aside>
@@ -23,8 +23,11 @@
     <div class="main">
         <th:block th:if="${categories != null}"
                   th:insert="~{/layouts/admin/categoryTable.html::categoryTableLayout(${categories}, ${category})}"></th:block>
+        <th:block th:if="${brands != null}"
+                  th:insert="~{/layouts/admin/brandTable.html::brandTableLayout(${brand}, ${brands})}"></th:block>
+        <th:block th:if="${items != null}"
+                  th:insert="~{layouts/admin/itemTable.html::itemTableLayout(${item}, ${itemForSave}, ${items})}"></th:block>
     </div>
 </div>
-<script src="/scripts/admin.js"></script>
 </body>
 </html>

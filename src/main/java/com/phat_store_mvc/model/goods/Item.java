@@ -65,8 +65,8 @@ public class Item {
                 ", amount=" + amount +
                 ", size=" + size +
                 ", price=" + price +
-//                ", brand=" + brand +
-//                ", category=" + category +
+                ", brand=" + brand.getName() +
+                ", category=" + category.getName() +
                 '}';
     }
 }

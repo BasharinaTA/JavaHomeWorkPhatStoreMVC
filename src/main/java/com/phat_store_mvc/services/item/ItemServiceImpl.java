@@ -25,7 +25,7 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public List<Item> getAllOrderById() {
-        return itemRepository.findByOrderByIdAsc();
+        return itemRepository.findByOrderByIdAsc().stream().limit(10).toList();
     }
 
     @Override
@@ -51,6 +51,10 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public boolean deleteById(Integer id) {
+     if (itemRepository.findById(id).isPresent()) {
+            itemRepository.deleteById(id);
+            return true;
+        }
         return false;
     }
 }

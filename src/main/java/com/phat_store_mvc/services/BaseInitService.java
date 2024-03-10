@@ -27,7 +27,7 @@ public class BaseInitService {
     private ItemService itemService;
 
     public void brandInit() {
-        List<String> brands = List.of("Kangol", "Proclub", "Novesta", "Hublot", "Pinko");
+        List<String> brands = List.of("Kangol", "Proclub", "Novesta", "Pinko", "Hublot");
         brands.forEach(brand -> brandService.save(new Brand(brand)));
     }
 

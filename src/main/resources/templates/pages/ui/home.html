@@ -9,7 +9,10 @@
 <wrapper>
     <th:block th:insert="~{/layouts/header.html::headerLayout}"></th:block>
     <main>
-        <th:block th:insert="~{/layouts/shop.html::shopLayout(${categories})}"></th:block>
+        <div class="shop">
+            <th:block th:insert="~{/layouts/categories.html::categoriesLayout(${categories})}"></th:block>
+            <th:block th:insert="~{/layouts/brands.html::brandsLayout(${brands})}"></th:block>
+        </div>
         <th:block th:insert="~{layouts/logo.html::logoLayout}"></th:block>
     </main>
 </wrapper>

@@ -23,20 +23,21 @@
           <td colspan="2"><input type="submit" value="Сохранить"></td>
         </form>
       </tr>
-      <tr th:each="cat : ${categories}">
-        <form method="post" th:action="@{'/admin/categories/edit/' + ${cat.id}}">
-          <td><input type="text" name="id" th:value="${cat.id}" disabled></td>
-          <td><input type="text" name="name" th:value="${cat.name}"></td>
+      <tr th:each="category : ${categories}">
+        <form method="post" th:action="@{'/admin/categories/edit/' + ${category.id}}">
+          <td><input type="text" name="id" th:value="${category.id}" disabled></td>
+          <td><input type="text" name="name" th:value="${category.name}"></td>
           <td><input type="submit" value="Редактировать"></td>
           <td>
         </form>
-        <form method="post" th:action="@{'/admin/categories/delete/' + ${cat.id}}">
+        <form method="post" th:action="@{'/admin/categories/delete/' + ${category.id}}">
           <input type="submit" value="Удалить">
         </form>
         </td>
       </tr>
       </tbody>
     </table>
+    <script src="/scripts/admin.js"></script>
   </th:block>
 </body>
 </html>
